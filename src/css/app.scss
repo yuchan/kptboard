@@ -1,4 +1,32 @@
 div#container {
-  background-color: #333333;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.float-table {
+  padding: 12px;
+  overflow-x:scroll;
+  overflow-y: hidden;
+  -ms-overflow-y: hidden;
+  white-space: nowrap;
+  width: 1800px;
+}
+
+.float-table-item {
+  width: 200px;
+  float: left;
+  padding: 12px;
+}
+
+.float-table-item table {
+  width: 200px;
+}
+
+form.newItem {
+  padding: 12px;
+  width: 200px;
+}
+
+form.newItem textarea {
+  width: 200px;
 }
