@@ -1,32 +1,35 @@
-div#container {
-  background-color: #ffffff;
-  color: #333333;
+$base-backgound-color: #fff;
+$base-color: #333;
+$paddingval: 16px;
+$itemwidth: 200px;
+@mixin setItemWidth($width) {
+  width: $width;
 }
-
-.float-table {
-  padding: 12px;
-  overflow-x:scroll;
+@mixin infiniteHorizontalScroll() {
+  overflow-x: scroll;
   overflow-y: hidden;
   -ms-overflow-y: hidden;
   white-space: nowrap;
-  width: 1800px;
 }
-
+div#container {
+  background-color: $base-backgound-color;
+  color: $base-color;
+}
+.float-table {
+  padding: $paddingval;
+  @include infiniteHorizontalScroll();
+}
 .float-table-item {
-  width: 200px;
+  @include setItemWidth($itemwidth);
   float: left;
-  padding: 12px;
+  padding: $paddingval;
 }
-
 .float-table-item table {
-  width: 200px;
+  @include setItemWidth($itemwidth);
 }
-
 form.newItem {
-  padding: 12px;
-  width: 200px;
+  @include setItemWidth($itemwidth);
 }
-
 form.newItem textarea {
-  width: 200px;
+  @include setItemWidth($itemwidth);
 }
