@@ -3,7 +3,6 @@ sass = require 'gulp-sass'
 browserify = require 'browserify'
 source = require 'vinyl-source-stream'
 reactify = require 'reactify'
-_ = require 'lodash'
 
 customOpts =
   entries: ['./src/js/main.js'],

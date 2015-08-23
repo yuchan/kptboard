@@ -1,10 +1,4 @@
-React Backbone Demo
+KPT Board
 =========================
 
-## Usage
-
-```bash
-$ npm install
-$ gulp build # npm install -g gulp, if you need
-$ python -m SimpleHTTPServer 8080 # open http://localhost:8080
-```
+Web App for KPT(Keep/Problem/Try).

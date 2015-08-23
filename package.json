@@ -14,13 +14,12 @@
     "coffee-script": "^1.9.3",
     "gulp": "^3.9.0",
     "gulp-sass": "^2.0.4",
-    "lodash": "^3.10.1",
     "reactify": "^1.1.1",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.3.1"
+    "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "backbone": "^1.2.1",
+    "backbone.localstorage": "^1.1.16",
     "jquery": "^2.1.4",
     "react": "^0.13.3"
   }

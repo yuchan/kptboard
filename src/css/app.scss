@@ -9,7 +9,6 @@ $itemwidth: 200px;
   overflow-x: scroll;
   overflow-y: hidden;
   -ms-overflow-y: hidden;
-  white-space: nowrap;
 }
 div#container {
   background-color: $base-backgound-color;
@@ -26,6 +25,10 @@ div#container {
 }
 .float-table-item table {
   @include setItemWidth($itemwidth);
+}
+.float-table-item table tr {
+  @include setItemWidth($itemwidth);
+  word-break: break-all;
 }
 form.newItem {
   @include setItemWidth($itemwidth);
