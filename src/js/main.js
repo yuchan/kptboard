@@ -1,8 +1,8 @@
 var Backbone = require('backbone');
 var Router = require('./router');
-var HomeViewController = require('./controller/homeViewController');
-var BoardViewController = require('./controller/boardViewController');
-var ErrorViewController = require('./controller/errorViewController');
+var HomeViewController = require('./homeViewController');
+var BoardViewController = require('./boardViewController');
+var ErrorViewController = require('./errorViewController');
 
 var router = new Router();
 var homeVC = new HomeViewController(router);
