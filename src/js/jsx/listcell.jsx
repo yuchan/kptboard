@@ -1,5 +1,4 @@
 var React = require('react');
-var Parse = require('../Parse');
 var ParseReact = require('parse-react');
 
 var ListCell = React.createClass({
