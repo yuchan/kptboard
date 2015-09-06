@@ -1,5 +1,6 @@
 var React = require('react');
-var Memo = require('../../model/memo');
+var Memo = require('../memo');
+var ParseReact = require('parse-react');
 
 var Form = React.createClass({
   addItem: function(e) {
@@ -10,7 +11,12 @@ var Form = React.createClass({
       return;
     }
 
-    this.props.addItem(kind, text);
+    ParseReact.Mutation.Create("Retrospective", {
+      kind: parseInt(kind),
+      text: text
+    })
+    .dispatch();
+
     React.findDOMNode(this.refs.itemKind).value = 0;
     React.findDOMNode(this.refs.itemText).value = '';
   },

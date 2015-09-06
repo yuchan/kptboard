@@ -1,5 +1,5 @@
 var React = require('react');
-var notfound = require('../view/404.jsx');
+var notfound = require('./jsx/404.jsx');
 
 var ErrorViewController = function(router) {
   this.router = router;

@@ -5,6 +5,6 @@ var Router = Backbone.Router.extend({
     "hello": "hello",
     '*notFound': 'notFound'
   }
-})
+});
 
 module.exports = Router;

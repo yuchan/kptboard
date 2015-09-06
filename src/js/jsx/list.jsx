@@ -1,9 +1,14 @@
 var React = require('react');
 var ListCell = require('./listcell.jsx');
+var Parse = require('../Parse');
+var ParseReact = require('parse-react');
 
 var List = React.createClass({
-  deleteItem: function(item){
-    this.props.deleteItem(item);
+  mixins: [ParseReact.Mixin],
+  observe: function() {
+    return {
+      memos: (new Parse.Query('Retrospective')).equalTo("kind", this.props.kind)
+    };
   },
   render: function() {
     var $self = this;
@@ -12,8 +17,8 @@ var List = React.createClass({
         <h2>{this.props.listtitle}</h2>
         <table className="pure-table pure-table-horizontal">
           <tbody>
-            {this.props.memos.map(function (memo) {
-              return <ListCell data={memo} key={memo.cid} deleteItem={$self.deleteItem}/>
+            {this.data.memos.map(function (memo) {
+              return <ListCell data={memo} key={memo.cid}/>
             })}
           </tbody>
         </table>

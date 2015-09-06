@@ -1,5 +1,5 @@
 var React = require('react');
-var home = require('../view/home.jsx');
+var home = require('./jsx/home.jsx');
 
 var HomeViewController = function(router) {
   this.router = router;

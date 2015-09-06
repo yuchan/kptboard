@@ -21,6 +21,8 @@
     "backbone": "^1.2.1",
     "backbone.localstorage": "^1.1.16",
     "jquery": "^2.1.4",
+    "parse": "^1.5.0",
+    "parse-react": "^0.4.2",
     "react": "^0.13.3"
   }
 }
