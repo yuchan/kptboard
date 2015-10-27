@@ -1,7 +1,20 @@
 var React = require('react');
-var ListCell = require('./listcell.jsx');
 var Parse = require('../Parse');
 var ParseReact = require('parse-react');
+
+var ListCell = React.createClass({
+    deleteItem: function() {
+        ParseReact.Mutation.Destroy(this.props.memo).dispatch();
+    },
+    render: function() {
+        return (
+            <tr>
+                <td style={{width: "180px"}}>{this.props.memo.text}</td>
+                <td><input onClick={this.deleteItem} type='button' value="x"/></td>
+            </tr>
+        );
+    }    
+});
 
 var List = React.createClass({
   mixins: [ParseReact.Mixin],
@@ -18,8 +31,8 @@ var List = React.createClass({
         <table className="pure-table pure-table-horizontal">
           <tbody>
             {this.data.memos.map(function (memo) {
-              return <ListCell data={memo} key={memo.cid}/>
-            })}
+                 return <ListCell memo={memo} key={Math.random()}/>
+             })}
           </tbody>
         </table>
       </div>

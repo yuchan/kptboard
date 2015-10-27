@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Memo = require('./memo');
 var BoardViewModel = require('./jsx/boardviewmodel.jsx');
 
@@ -8,13 +9,13 @@ function BoardViewController(router) {
 
 BoardViewController.prototype.init = function() {
   var $self = this;
-  this.router.on("route:hello", function() {
+  this.router.on("route:board", function() {
     $self.renderView();
   });
 };
 
 BoardViewController.prototype.renderView = function() {
-  React.render(React.createElement(BoardViewModel, {
+    ReactDOM.render(React.createElement(BoardViewModel, {
     itemWidth: 200,
     paddingVal: 16,
   }), document.getElementById('container'));
