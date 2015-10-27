@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var home = require('./jsx/home.jsx');
 
 var HomeViewController = function(router) {
@@ -6,7 +7,7 @@ var HomeViewController = function(router) {
 };
 HomeViewController.prototype.init = function() {
   this.router.on("route:home", function() {
-    React.render(React.createElement(home), document.getElementById('container'));
+      ReactDOM.render(React.createElement(home), document.getElementById('container'));
   });
 };
 

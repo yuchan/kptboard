@@ -1,12 +1,13 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var Memo = require('../memo');
 var ParseReact = require('parse-react');
 
 var Form = React.createClass({
   addItem: function(e) {
     e.preventDefault();
-    var kind = React.findDOMNode(this.refs.itemKind).value;
-    var text = React.findDOMNode(this.refs.itemText).value.trim();
+    var kind = ReactDOM.findDOMNode(this.refs.itemKind).value;
+    var text = ReactDOM.findDOMNode(this.refs.itemText).value.trim();
     if (!kind || !text) {
       return;
     }
@@ -17,8 +18,8 @@ var Form = React.createClass({
     })
     .dispatch();
 
-    React.findDOMNode(this.refs.itemKind).value = 0;
-    React.findDOMNode(this.refs.itemText).value = '';
+    ReactDOM.findDOMNode(this.refs.itemKind).value = 0;
+    ReactDOM.findDOMNode(this.refs.itemText).value = '';
   },
   renderComponent: function(field) {
     return (
@@ -28,21 +29,21 @@ var Form = React.createClass({
     );
   },
   renderField: function(id, label, field) {
-    return this.renderComponent(<div>
-        <label htmlFor={id}>{label}</label>
-        {field}
-      </div>);
+      return this.renderComponent(
+          <div>
+              <label htmlFor={id}>{label}</label>
+              {field}
+          </div>
+      );
   },
   renderSelect: function(id, label) {
-    return this.renderField(id, label, < select id = {
-      id
-    }
-    ref = {
-      id
-    } > <option value="0">keep</option>
-    <option value = "1" > problem < /option>
-        <option value="2">try</option > </select>
-    );
+      return this.renderField(id, label,
+                              <select id = {id} ref = {id}>
+                                  <option value="0">keep</option>
+                                  <option value="1">problem</option>
+                                  <option value="2">try</option>
+                              </select>
+      );
   },
   render: function() {
     return (
@@ -50,7 +51,7 @@ var Form = React.createClass({
         <h2>{this.props.formtitle}</h2>
         <form className="newItem" onSubmit={this.addItem}>
           {this.renderSelect("itemKind", "Kind")}
-          {this.renderField("itemText", "Text", < textarea name = "itemText" ref = "itemText" > </textarea>
+          {this.renderField("itemText", "Text", <textarea name="itemText" ref="itemText"></textarea>
           )}
           {this.renderComponent(<input className="pure-button pure-button-primary" type="submit" value="add"/>)}
         </form>

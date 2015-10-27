@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var notfound = require('./jsx/404.jsx');
 
 var ErrorViewController = function(router) {
@@ -7,7 +8,7 @@ var ErrorViewController = function(router) {
 
 ErrorViewController.prototype.init = function() {
   this.router.on("route:notFound", function() {
-    React.render(React.createElement(notfound), document.getElementById('container'));
+    ReactDOM.render(React.createElement(notfound), document.getElementById('container'));
   });
 };
 
