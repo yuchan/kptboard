@@ -1,0 +1,27 @@
+div#container {
+  background-color: #fff;
+  color: #333; }
+
+.float-table {
+  padding: 16px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -ms-overflow-y: hidden; }
+
+.float-table-item {
+  width: 200px;
+  float: left;
+  padding: 16px; }
+
+.float-table-item table {
+  width: 200px; }
+
+.float-table-item table tr {
+  width: 200px;
+  word-break: break-all; }
+
+form.newItem {
+  width: 200px; }
+
+form.newItem textarea {
+  width: 200px; }
