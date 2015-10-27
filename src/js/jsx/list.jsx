@@ -1,5 +1,5 @@
 var React = require('react');
-var Parse = require('../Parse');
+var Parse = require('parse');
 var ParseReact = require('parse-react');
 
 var ListCell = React.createClass({
@@ -20,7 +20,7 @@ var List = React.createClass({
   mixins: [ParseReact.Mixin],
   observe: function() {
     return {
-      memos: (new Parse.Query('Retrospective')).equalTo("kind", this.props.kind)
+      memos: (new Parse.Query('Retrospective')).equalTo("kind", this.props.kind).equalTo("userid", Parse.User.current().id)
     };
   },
   render: function() {

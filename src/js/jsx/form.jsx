@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Memo = require('../memo');
+var Parse = require('parse');
 var ParseReact = require('parse-react');
 
 var Form = React.createClass({
@@ -12,9 +13,11 @@ var Form = React.createClass({
       return;
     }
 
+      console.log(Parse.User.current());
     ParseReact.Mutation.Create("Retrospective", {
       kind: parseInt(kind),
-      text: text
+        text: text,
+        userid: Parse.User.current().id
     })
     .dispatch();
 

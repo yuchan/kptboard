@@ -7,12 +7,16 @@ var SigninForm = React.createClass({
         e.preventDefault();
         var username = ReactDOM.findDOMNode(this.refs.username).value;
         var password = ReactDOM.findDOMNode(this.refs.password).value.trim();
+        var $self = this;
         Parse.User.logIn(username, password, {
             success: function(user) {
                 // Do stuff after successful login.
+                ReactDOM.render(React.createElement(headerView, {}), document.getElementById('header'));
+                window.location = "#/board";
             },
             error: function(user, error) {
                 // The login failed. Check error to see why.
+                alert("Error: " + error.code + " " + error.message);
             }
         });
     },
@@ -40,7 +44,7 @@ var SigninForm = React.createClass({
 var SigninView = React.createClass({
   render: function() {
       return (
-          <SigninForm />
+          <SigninForm userLogIn={this.props.userLogIn} />
     );
   }
 });

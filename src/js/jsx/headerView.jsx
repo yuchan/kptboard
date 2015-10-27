@@ -3,6 +3,12 @@ var ReactDOM = require('react-dom');
 var Parse = require('parse');
 
 var headerView = React.createClass({
+    userLogOut: function(e) {
+        e.preventDefault();
+        Parse.User.logOut();
+        ReactDOM.render(React.createElement(headerView, {}), document.getElementById('header'));
+        window.location = "/#";
+    },
     renderComponent: function(elmLoginLink) {
         return (
             <div className="pure-menu pure-menu-horizontal">
@@ -21,7 +27,7 @@ var headerView = React.createClass({
     },
     renderLogOut: function() {
         return this.renderComponent([<li className="pure-menu-item"><a href="#/board" className="pure-menu-link">board</a></li>,
-                                     <li className="pure-menu-item"><a href="#/logout" className="pure-menu-link">logout</a></li>]);        
+                                     <li className="pure-menu-item"><a href="#/logout" className="pure-menu-link" onClick={this.userLogOut}>logout</a></li>]);        
     },
     render: function() {
         var currentUser = Parse.User.current();

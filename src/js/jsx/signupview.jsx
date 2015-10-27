@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Parse = require('parse');
+var headerView = require('./headerView.jsx');
 
 var SignupForm = React.createClass({
     addUser: function(e) {
@@ -16,6 +17,8 @@ var SignupForm = React.createClass({
         user.signUp(null, {
             success: function(user) {
                 // Hooray! Let them use the app now.
+                ReactDOM.render(React.createElement(headerView, {}), document.getElementById('header'));
+                window.location = "#/board";
             },
             error: function(user, error) {
                 // Show the error message somewhere and let the user try again.
